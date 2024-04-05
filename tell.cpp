@@ -45,7 +45,7 @@ void backUpStart()
 bool find(int i)
 {
 
-    if (Contacts[i].phone == 0)
+    if (Contacts[i].phone != 0)
         return true;
     else
         return false;
@@ -62,11 +62,12 @@ int find(void)
 }
 void backUpEnd()
 {
-    ofstream myFile(filename, ios::app);
+    ofstream myFile(filename, ios::out);
     for (int i = 0; i < size; i++)
     {
         if (find(i))
-        {
+        {   
+            cout<<"contact found ;-)";
             myFile << Contacts[i].f_name<<endl;
             myFile << Contacts[i].l_name<<endl;
             myFile << Contacts[i].phone<<endl;
@@ -74,6 +75,7 @@ void backUpEnd()
         else
             continue;
     }
+    system("pause");
     myFile.close();
 }
 void add(int i)
@@ -202,7 +204,7 @@ void DeleteContacts()
                 if (chose == 1)
                     Contacts[i].phone = 0;
             }
-
+    
         break;
     case 2:
         cout << "enter last_name: ";
@@ -262,6 +264,7 @@ int main()
             }
             else
                 add(i);
+            backUpEnd();
             break;
         case 2:
             DeleteContacts();
