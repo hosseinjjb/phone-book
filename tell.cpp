@@ -65,9 +65,9 @@ void backUpEnd()
     ofstream myFile(filename, ios::out);
     for (int i = 0; i < size; i++)
     {
-        if (find(i))
+        if (find(i)! =-1)
         {   
-            cout<<"contact found ;-)";
+           \\ cout<<"contact found ;-)";
             myFile << Contacts[i].f_name<<endl;
             myFile << Contacts[i].l_name<<endl;
             myFile << Contacts[i].phone<<endl;
